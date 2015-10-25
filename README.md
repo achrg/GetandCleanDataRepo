@@ -20,8 +20,8 @@ Steps to follow to tidy up the following data folder: https://d396qusza40orc.clo
 
   1. Clone this repository
   2. Set the current working directory to yours
-  3. run the whole run_analysis.R (the code will download the data automatically so you won't need to do it)
-  4. the output tidy datasets will be named tidydata.txt and tidydataAverage.txt
+  3. Run run_analysis.R (the code will download the data automatically so you won't need to do it)
+  4. The output tidy datasets will be named tidydata.txt and tidydataAverage.txt
   
 
 
