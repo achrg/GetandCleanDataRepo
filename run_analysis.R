@@ -23,28 +23,27 @@ if (!require(plyr)) {install.packages('plyr')}
 require(plyr)
 
 # Downloading Data
-if(!file.exists("./data")){dir.create("./data")}
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(fileUrl,destfile="./data/Data.zip",method="curl")
+download.file(fileUrl,destfile="Data.zip",method="curl")
 
 # Unzipping downloaded file
-unzip(zipfile="./data/Data.zip",exdir="./data")
+unzip(zipfile="Data.zip")
 
 ##########
 # 1. Merges the training and the test sets to create one data set 
 ##########
 
 # Loading subject information
-subjectData_train <- read.table("Data/UCI HAR Dataset/train/subject_train.txt", header = FALSE)
-subjectData_test <- read.table("Data/UCI HAR Dataset/test/subject_test.txt", header = FALSE)
+subjectData_train <- read.table("UCI HAR Dataset/train/subject_train.txt", header = FALSE)
+subjectData_test <- read.table("UCI HAR Dataset/test/subject_test.txt", header = FALSE)
 
 # Loading training data
-activityData_train <- read.table("Data/UCI HAR Dataset/train/X_train.txt", header = FALSE)
-featureData_train <- read.table("Data/UCI HAR Dataset/train/y_train.txt", header = FALSE)
+activityData_train <- read.table("UCI HAR Dataset/train/X_train.txt", header = FALSE)
+featureData_train <- read.table("UCI HAR Dataset/train/y_train.txt", header = FALSE)
 
 # Loading test data
-activityData_test <- read.table("Data/UCI HAR Dataset/test/X_test.txt", header = FALSE)
-featureData_test <- read.table("Data/UCI HAR Dataset/test/y_test.txt", header = FALSE)
+activityData_test <- read.table("UCI HAR Dataset/test/X_test.txt", header = FALSE)
+featureData_test <- read.table("UCI HAR Dataset/test/y_test.txt", header = FALSE)
 
 # Combines data tables
 activityData <- rbind(activityData_train, activityData_test)
@@ -78,7 +77,7 @@ str(data)
 ## 3. Uses descriptive activity names to name the activities in the data set
 
 # Loading activity labels
-activityLabels <- read.table("Data/UCI HAR Dataset/activity_labels.txt", header = FALSE)
+activityLabels <- read.table("UCI HAR Dataset/activity_labels.txt", header = FALSE)
 names(activityLabels) <- c("activity_ID","activity_Description")
 
 data_<-merge(data,activityLabels)
